@@ -1,0 +1,60 @@
+body {
+    font-family: monospace;
+}
+
+ol li {
+    background-color: rgba(255, 255, 0, 0.5);
+    line-height: 150%;
+}
+
+ol li:nth-of-type(even) {
+    color: rgba(0, 128, 0, 0.8);
+}
+
+ol li:nth-of-type(odd) {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+h1, h2 {
+    color: rgba(255, 0, 0, 0.8);
+    font-size: 40px;
+    border: black 1px solid;
+}
+
+li {
+    font-size: 20px;
+}
+
+.azul {
+    color: rgb(49, 183, 216);
+}
+
+.rosa {
+    background-color: pink;
+}
+
+.stack:hover {
+    font-weight: 700;
+    color: rgb(235, 123, 31);
+}
+
+.w3s:hover {
+    font-weight: 700;
+    color: rgb(35, 146, 35);
+}
+
+.mdn:hover {
+    font-weight: 700;
+    color: rgb(48, 48, 48);
+}
+
+.dev:hover {
+    font-weight: 700;
+    color: rgb(216, 212, 0);
+}
+
+.trybe:hover {
+    font-weight: 700;
+    color: rgb(50, 110, 22);
+}

@@ -1,0 +1,42 @@
+div {
+    padding: 1em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+div:hover {
+    border: rgb(155, 155, 155) dotted 2px;
+}
+
+div:nth-of-type(odd) {
+    background-color: rgb(228, 245, 218);
+    font-style: italic;
+}
+
+div:nth-of-type(1):hover {
+    background-color: rgba(255, 0, 0, 0.13);
+}
+
+div:nth-of-type(2):hover {
+    background-color: rgba(255, 136, 0, 0.13);
+}
+
+div:nth-of-type(3):hover {
+    background-color: rgba(0, 255, 157, 0.13);
+    font-size: 1.2em;
+    padding: 2em;
+}
+
+div:nth-of-type(4):hover {
+    background-color: rgb(32, 32, 32);
+    color: white;
+}
+
+div:nth-of-type(5):hover {
+    background-color: rgb(194, 255, 250);
+    color: rgb(39, 39, 39);
+}
+
+div h3 {
+    background-color: rgba(255, 255, 255, 0.753);
+    padding: 0.5em;
+}
