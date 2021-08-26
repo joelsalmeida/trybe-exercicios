@@ -101,3 +101,46 @@ function checkOddNumbers(n) {
 let numbers2 = [2, 4, 6, 8, 10]
 checkOddNumbers(numbers);
 
+// Utilizando for , descubra qual o menor valor contido no array e imprima-o;
+
+function getSmallestNumber(arr) {
+    let smallestNumber = arr[0];
+
+    for (let index = 0; index < arr.length; index++) {
+        let currentNumber = arr[index];
+
+        if (currentNumber < smallestNumber) {
+            smallestNumber = currentNumber;
+        }
+    }
+    console.log("menor numero: " + smallestNumber);
+}
+
+getSmallestNumber(numbers);
+
+// Utilizando for , crie um array que vá de 1 até 25 e imprima o resultado;
+let countedNumbers = [];
+
+function count(limiter) {
+    
+    for (let index = 1; index <= limiter; index++) {
+        countedNumbers.push(index);
+    }
+    console.log("os números são: " + countedNumbers);
+}
+count(25);
+
+// Utilizando o array criado no exercício anterior
+// imprima o resultado da divisão de cada um dos elementos por 2 .
+
+function dividedBy(dividend, divisor) {
+    let result = [];
+
+    for (let index = 0; index < dividend.length; index++) {
+        let currentDividend = dividend[index];
+        result.push(currentDividend / 2)
+    }
+    console.log("divided numbers: " + result)
+}
+
+dividedBy(countedNumbers, 2)
