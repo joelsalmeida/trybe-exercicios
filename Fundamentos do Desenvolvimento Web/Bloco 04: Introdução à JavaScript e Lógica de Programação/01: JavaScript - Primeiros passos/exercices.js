@@ -167,3 +167,102 @@ function chessMovements(piece) {
 }
 
 chessMovements("PAWN");
+
+// Escreva um programa que converte uma nota dada em porcentagem (de 0 a 100)em conceitos de A a F.
+// Siga essas regras:
+// Porcentagem >= 90 -> A
+// Porcentagem >= 80 -> B
+// Porcentagem >= 70 -> C
+// Porcentagem >= 60 -> D
+// Porcentagem >= 50 -> E
+// Porcentagem < 50 -> F
+// O programa deve retornar uma mensagem de erro e encerrar se a nota passada for menor que 0 ou maior que 100.
+
+function yourGrade(g) {
+    let gradeFeedback;
+
+    if (g < 0 || g > 100) {
+        gradeFeedback = "Ops, something wrong.";
+    } else if (g >= 90) {
+        gradeFeedback = "A. You were amazing!";
+    } else if (g >= 80) {
+        gradeFeedback = "B. You did a great job!";
+    } else if (g >= 70) {
+        gradeFeedback = "C. Good work!";
+    } else if (g >= 60) {
+        gradeFeedback = "D. Nemo said - keep swimming...";
+    } else if (g >= 50) {
+        gradeFeedback = "E. You can improve.";
+    } else if (g < 50) {
+        gradeFeedback = "F. :(";
+    }
+    console.log(gradeFeedback);
+}
+yourGrade(-1);
+
+// Escreva um programa que defina três números em constantes
+// e retorne true se pelo menos uma das três for par. 
+// Caso contrário, ele retorna false .
+
+function isEven(n1, n2, n3) {
+    let result;
+    if (n1 % 2 === 0 || n2 % 2 === 0 || n3 % 2 === 0) {
+        result = true;
+    } else {
+        result = false;
+    }
+    console.log("Is there any even number? " + result)
+}
+isEven(3, 2, 7);
+
+// Escreva um programa que se inicie com dois valores em duas constantes diferentes:
+// O custo de um produto e seu valor de venda.
+// A partir dos valores, calcule quanto de lucro a empresa terá ao vender mil desses produtos.
+// Atente que, sobre o custo do produto, incide um imposto de 20%.
+// Seu programa também deve emitir uma mensagem de erro e encerrar
+// caso algum dos seus valores de entrada seja menor que zero.
+
+function profitCalculation(cost, salesValue, tax) {
+
+    function checkValues(v1, v2, v3) {
+
+        let allValues = [v1, v2, v3];
+
+        allValues.forEach(element => {
+            if (element < 0) {
+                console.log(element + " is a invalid value.")
+            } else {
+                console.log(element + " is a valid value.")
+            }
+        });
+    }
+
+    function profitResult(costPr, salesValuePr, taxPr) {
+
+        let taxValue = (costPr / 100) * taxPr;
+        console.log("The tax value is: " + taxValue);
+    
+        let totalCost = costPr + taxValue;
+        console.log("The total cost is: " + totalCost);
+    
+        let profit = salesValuePr - totalCost;
+        
+        if (profit < 0) {
+            console.log("Looks like we have a loss of " + profit);
+        } else if (profit === 0) {
+            console.log("No profit. This seems like a waste of time and energy.")
+        } else {
+            console.log("Considering the tax of " + taxPr + " your profit is " + profit + ".")
+            let profitPer1k = profit * 1000;
+            console.log("By selling 1000 pieces, the profit will be " + profitPer1k)
+        }
+    }
+
+    if (cost < 0 || salesValue < 0 || tax < 0) {
+        console.log("Ops. Something wrong. :(")
+        checkValues(cost, salesValue, tax);
+    } else {
+        profitResult(cost, salesValue, tax)
+    }
+}
+profitCalculation(100, 90, 20);
