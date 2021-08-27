@@ -29,3 +29,118 @@ let names = ['João', 'Maria', 'Antônio', 'Margarida'];
 for (const iterator of names) {
     console.log("name: " + iterator);
 }
+
+// Exercícios parte II
+// Nesse primeiro exercício, percorra o array
+// imprimindo todos os valores nele contidos com a função console.log()
+
+let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
+
+for (const iterator of numbers) {
+    console.log("number: " + iterator);
+}
+
+// Para o segundo exercício, some todos os valores contidos no array e imprima o resultado;
+
+let totalOfNumbers = 0;
+
+for (const iterator of numbers) {
+    totalOfNumbers += iterator;
+}
+console.log("total: " + totalOfNumbers);
+
+// Para o terceiro exercício, calcule e imprima a média aritmética dos valores contidos no array;
+
+let media = totalOfNumbers / numbers.length;
+console.log("media of numbers: " + media);
+
+// Com o mesmo código do exercício anterior, caso o valor final seja maior que 20,
+// imprima a mensagem: "valor maior que 20".
+// Caso não seja, imprima a mensagem: "valor menor ou igual a 20";
+
+let greaterThan20;
+
+if (media > 20) {
+    console.log("valor maior que 20");
+} else {
+    console.log("valor menor ou igual a 20");
+}
+
+// Utilizando for , descubra qual o maior valor contido no array e imprima-o;
+
+let higherNumber = 0;
+
+for (let index = 0; index < numbers.length; index++) {
+    let currentNumber = numbers[index];
+    
+    if (currentNumber > higherNumber) {
+        higherNumber = currentNumber;
+    }
+}
+
+console.log("o maior número é: " + higherNumber);
+
+// Descubra quantos valores ímpares existem no array e imprima o resultado.
+// Caso não exista nenhum, imprima a mensagem: "nenhum valor ímpar encontrado";
+
+function checkOddNumbers(n) {
+    let oddNumbers = [];
+
+    for (const iterator of n) {
+        if (iterator % 2 != 0) {
+            oddNumbers.push(iterator);
+        }
+    }
+
+    if (oddNumbers.length <= 0) {
+        console.log("nenhum valor ímpar encontrado.");
+    } else {
+        console.log( "there are " + oddNumbers.length + " odd numbers. " + oddNumbers);
+    }
+}
+let numbers2 = [2, 4, 6, 8, 10]
+checkOddNumbers(numbers);
+
+// Utilizando for , descubra qual o menor valor contido no array e imprima-o;
+
+function getSmallestNumber(arr) {
+    let smallestNumber = arr[0];
+
+    for (let index = 0; index < arr.length; index++) {
+        let currentNumber = arr[index];
+
+        if (currentNumber < smallestNumber) {
+            smallestNumber = currentNumber;
+        }
+    }
+    console.log("menor numero: " + smallestNumber);
+}
+
+getSmallestNumber(numbers);
+
+// Utilizando for , crie um array que vá de 1 até 25 e imprima o resultado;
+let countedNumbers = [];
+
+function count(limiter) {
+    
+    for (let index = 1; index <= limiter; index++) {
+        countedNumbers.push(index);
+    }
+    console.log("os números são: " + countedNumbers);
+}
+count(25);
+
+// Utilizando o array criado no exercício anterior
+// imprima o resultado da divisão de cada um dos elementos por 2 .
+
+function dividedBy(dividend, divisor) {
+    let result = [];
+
+    for (let index = 0; index < dividend.length; index++) {
+        let currentDividend = dividend[index];
+        result.push(currentDividend / 2)
+    }
+    console.log("divided numbers: " + result)
+}
+
+dividedBy(countedNumbers, 2)
