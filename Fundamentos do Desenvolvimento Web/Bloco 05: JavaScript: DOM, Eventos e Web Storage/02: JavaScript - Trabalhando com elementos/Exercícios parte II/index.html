@@ -57,21 +57,39 @@
   </head>
   <body>
     <script>
-    //   Adicione a tag h1 com o texto Exercício 5.2 - JavaScript DOM como filho da tag body;
-    let body = document.querySelector('body');
-    let h1 = document.createElement('h1');
-    h1.innerText = 'Exercício 5.2 - JavaScript DOM';
-    body.appendChild(h1);
+      //   Adicione a tag h1 com o texto Exercício 5.2 - JavaScript DOM como filho da tag body;
+      let body = document.querySelector("body");
+      let h1 = document.createElement("h1");
+      h1.innerText = "Exercício 5.2 - JavaScript DOM";
+      body.appendChild(h1);
 
-    // Adicione a tag main com a classe main-content como filho da tag body;
-    let main = document.createElement('main');
-    main.classList.add('main-content');
-    body.appendChild(main);
+      // Adicione a tag main com a classe main-content como filho da tag body;
+      let main = document.createElement("main");
+      main.classList.add("main-content");
+      body.appendChild(main);
 
-    // Adicione a tag section com a classe center-content como filho da tag main criada no passo 2;
-    let section = document.createElement('section');
-    section.classList.add('center-content');
-    main.appendChild(section);
+      // Adicione a tag section com a classe center-content como filho da tag main criada no passo 2;
+      let section = document.createElement("section");
+      section.classList.add("center-content");
+      main.appendChild(section);
+
+      // Adicione a tag p como filho do section criado no passo 3 e coloque algum texto;
+      let p = document.createElement("p");
+      p.innerText =
+        "Guarda sempre Ítaca em teu pensamento. É teu destino aí chegar. Mas não apresses absolutamente tua viagem. É melhor que dure muitos anos e que, já velho, ancores na ilha, rico com tudo que ganhaste no caminho, sem esperar que Ítaca te dê riqueza.";
+      section.appendChild(p);
+
+    //   Adicione a tag section com a classe left-content como filho da tag main criada no passo 2;
+    let sectionLeft = document.createElement("section");
+    sectionLeft.classList.add("left-content");
+    main.appendChild(sectionLeft);
+
+    // Adicione a tag section com a classe right-content como filho da tag main criada no passo 2;
+    let sectionRight = document.createElement("section");
+    sectionRight.classList.add("right-content");
+    main.appendChild(sectionRight);
+    
+
     </script>
   </body>
 </html>
