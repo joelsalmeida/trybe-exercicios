@@ -20,8 +20,6 @@ html {
 }
 
 header {
-  position: fixed;
-  top: 0;
   display: flex;
   justify-content: center;
   background-color: antiquewhite;
@@ -47,7 +45,6 @@ body {
 }
 
 main {
-  margin-top: 4.2rem;
   max-width: 600px;
   padding: 1.5em;
 }

@@ -15,9 +15,30 @@
     />
   </head>
   <body>
-		<header>
-			background color | font family - font size  - font color - line-height
-		</header>
+    <header>
+      <div class="container-options">
+        Font Family:
+        <input
+          type="radio"
+          name="font-family"
+          id="sans-serif"
+          value="Sans serif"
+        />
+        <label for="sans-serif">Sans serif</label>
+
+        <input type="radio" name="font-family" id="serif" value="Serif" />
+        <label for="serif">Serif</label>
+
+        <input
+          type="radio"
+          name="font-family"
+          id="mono-space"
+          value="Mono-space"
+        />
+        <label for="mono-space">Mono-space</label>
+      </div>
+    </header>
+
     <main>
       <h1>Lorem ipsum dolor sit amet</h1>
       <p>
@@ -91,5 +112,6 @@
         eu urna. Nullam a posuere ipsum, vel lacinia purus.
       </p>
     </main>
+    <script src="./script.js"></script>
   </body>
 </html>

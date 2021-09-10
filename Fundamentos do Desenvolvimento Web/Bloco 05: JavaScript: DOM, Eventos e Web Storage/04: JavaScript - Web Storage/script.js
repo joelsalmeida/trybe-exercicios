@@ -11,3 +11,47 @@
 // - Tipo da fonte ( Font family ).
 // Essas preferências devem ser salvas de forma que, ao retornar à página,
 // as preferências que foram previamente configuradas possam ser aplicadas na tela.
+
+const sansSerifElement = document.getElementById("sans-serif");
+const serifElement = document.getElementById("serif");
+const monoSpaceElement = document.getElementById("mono-space");
+
+var fontFamilyKey = localStorage.getItem("font-family");
+
+function checkFontFamily() {
+  switch (fontFamilyKey) {
+    case "Montserrat":
+      selectSansSerif();
+      sansSerifElement.checked = true;
+      break;
+
+    case "Merriweather":
+      selectSerif();
+      serifElement.checked = true;
+      break;
+
+    case "IBM Plex Mono":
+      selectMonoSpace();
+      monoSpaceElement.checked = true;
+      break;
+  }
+}
+checkFontFamily();
+
+function selectSansSerif() {
+  document.body.style.fontFamily = "Montserrat";
+  localStorage.setItem("font-family", "Montserrat");
+}
+sansSerifElement.addEventListener("click", selectSansSerif);
+
+function selectSerif() {
+  document.body.style.fontFamily = "Merriweather";
+  localStorage.setItem("font-family", "Merriweather");
+}
+serifElement.addEventListener("click", selectSerif);
+
+function selectMonoSpace() {
+  document.body.style.fontFamily = "IBM Plex Mono";
+  localStorage.setItem("font-family", "IBM Plex Mono");
+}
+monoSpaceElement.addEventListener("click", selectMonoSpace);
