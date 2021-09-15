@@ -9,7 +9,64 @@
   </head>
   <body>
     <main>
-      
+      <fieldset>
+        <legend>Dados pessoais</legend>
+
+        <!-- NOME -->
+        <label for="name">
+          Nome:
+          <input type="text" name="name" id="name" maxlength="40" required />
+        </label>
+
+        <!-- EMAIL -->
+        <label for="email">
+          Email:
+          <input type="text" name="email" id="email" maxlength="50" required />
+        </label>
+
+        <!-- CPF -->
+        <label for="cpf">
+          CPF:<input type="text" name="cpf" id="cpf" maxlength="11" required />
+        </label>
+
+        <!-- ENDEREÇO -->
+        <label for="adress">
+          Endereço:
+          <input
+            type="text"
+            name="adress"
+            id="adress"
+            maxlength="200"
+            required
+          />
+        </label>
+
+        <!-- CIDADE -->
+        <label for="city">
+          Cidade:
+          <input type="text" name="city" id="city" maxlength="28" required />
+        </label>
+
+        <!-- ESTADO -->
+        <label for="state">
+          Estado:
+          <select name="state" id="state" required></select>
+        </label>
+
+        <!-- CASA E APARTAMENTO -->
+        <label for="type">
+          Tipo: <label for="casa">Casa</label>
+          <input type="radio" name="type" id="casa" value="Casa" required />
+
+          <label for="apartamento">Apartamento</label>
+          <input
+            type="radio"
+            name="type"
+            id="apartamento"
+            value="Apartamento"
+          />
+        </label>
+      </fieldset>
     </main>
     <script src="./script.js"></script>
   </body>
