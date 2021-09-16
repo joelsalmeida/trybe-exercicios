@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <!-- ** FIELDSET DADOS PESSOAIS -->
+      <fieldset class="container box">
+        <legend class="subtitle is-2 has-text-primary">Dados pessoais</legend>
+
+        <!-- NOME -->
+        <div class="field">
+          <label class="label" for="name">
+            Nome:
+            <input
+              class="input"
+              type="text"
+              name="name"
+              id="name"
+              maxlength="40"
+              required
+            />
+          </label>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="field">
+          <label class="label" for="email">
+            Email:
+            <input
+              class="input"
+              type="text"
+              name="email"
+              id="email"
+              maxlength="50"
+              required
+            />
+          </label>
+        </div>
+
+        <!-- CPF -->
+        <div class="field">
+          <label class="label" for="cpf">
+            CPF:<input
+              class="input"
+              type="text"
+              name="cpf"
+              id="cpf"
+              maxlength="11"
+              required
+            />
+          </label>
+        </div>
+
+        <!-- ENDEREÇO -->
+        <div class="field">
+          <label class="label" for="adress">
+            Endereço:
+            <input
+              class="input"
+              type="text"
+              name="address"
+              id="adress"
+              maxlength="200"
+              required
+            />
+          </label>
+        </div>
+
+        <!-- CIDADE -->
+        <div class="field">
+          <label class="label" for="city">
+            Cidade:
+            <input
+              class="input"
+              type="text"
+              name="city"
+              id="city"
+              maxlength="28"
+              required
+            />
+          </label>
+        </div>
+
+        <!-- ESTADO -->
+        <div class="field">
+          <label class="label" for="state">
+            Estado:
+            <select class="select" name="state" id="state" required></select>
+          </label>
+        </div>
+
+        <!-- CASA E APARTAMENTO -->
+        <label class="radio" for="casa">Casa</label>
+        <input type="radio" name="type" id="casa" value="Casa" required />
+
+        <label class="radio" for="apartamento">Apartamento</label>
+        <input type="radio" name="type" id="apartamento" value="Apartamento" />
+      </fieldset>
+
+      <!-- ** FIELDSET ULTIMO EMPREGO -->
+      <fieldset class="container box">
+        <legend class="subtitle is-2 has-text-primary">Último Emprego</legend>
+
+        <!-- CURRÍCULO -->
+        <label class="label" for="resume">
+          Resumo do Currículo:
+          <textarea
+            class="textarea"
+            name="resume"
+            id="resume"
+            cols="30"
+            rows="10"
+            maxlength="1000"
+            required
+          ></textarea>
+        </label>
+
+        <!-- CARGO -->
+        <label class="label" for="job-role">
+          Cargo:
+          <input
+            class="input"
+            type="text"
+            name="job-role"
+            id="job-role"
+            maxlength="40"
+            required
+          />
+        </label>
+
+        <!-- DESCRIÇÃO DO CARGO -->
+        <label class="label" for="job-description">
+          Descrição do Cargo:
+          <input
+            class="input"
+            type="text"
+            name="job-description"
+            id="job-description"
+            maxlength="500"
+            required
+          />
+        </label>
+
+        <!-- DATA DE INÍCIO -->
+        <label class="label" for="start">
+          Data de Início:
+          <input
+            class="input"
+            type="text"
+            name="start"
+            id="start"
+            placeholder="01/02/2021"
+          />
+        </label>
+      </fieldset>
+
+      <section id="result-section" class="container box">
+        <div id="form-result"></div>
+        <button class="button is-primary" type="submit" id="send">
+          Enviar
+        </button>
+        <button class="button is-light" id="clear">Limpar</button>
+      </section>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
