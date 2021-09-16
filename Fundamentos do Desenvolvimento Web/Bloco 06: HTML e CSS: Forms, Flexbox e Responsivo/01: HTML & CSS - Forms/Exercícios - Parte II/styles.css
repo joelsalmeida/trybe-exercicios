@@ -1,0 +1,29 @@
+body {
+  font-family: "Roboto", sans-serif;
+  color: rgb(50, 50, 50);
+}
+
+fieldset {
+  border-radius: 5px;
+  padding-top: 1rem;
+}
+
+legend {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+label {
+  display: flex;
+  margin-bottom: 1em;
+  padding: 0 1em 0 1em;
+  align-items: baseline;
+}
+
+select{
+margin-left: 0.5em;
+}
+
+input {
+  margin-left: 0.5em;
+}
