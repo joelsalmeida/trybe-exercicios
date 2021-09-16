@@ -16,6 +16,7 @@
   </head>
   <body>
     <main>
+      <!-- ** FIELDSET DADOS PESSOAIS -->
       <fieldset>
         <legend>Dados pessoais</legend>
 
@@ -72,6 +73,53 @@
             id="apartamento"
             value="Apartamento"
           />
+        </label>
+      </fieldset>
+
+      <!-- ** FIELDSET ULTIMO EMPREGO -->
+      <fieldset>
+        <legend>Último Emprego</legend>
+
+        <!-- CURRÍCULO -->
+        <label for="resume">
+          Resumo do Currículo:
+          <textarea
+            name="resume"
+            id="resume"
+            cols="30"
+            rows="10"
+            maxlength="1000"
+            required
+          ></textarea>
+        </label>
+
+        <!-- CARGO -->
+        <label for="job-role">
+          Cargo:
+          <input
+            type="text"
+            name="job-role"
+            id="job-role"
+            maxlength="40"
+            required
+          />
+        </label>
+
+        <!-- DESCRIÇÃO DO CARGO -->
+        <label for="job-description">
+          Descrição do Cargo:
+          <input
+            type="text"
+            name="job-description"
+            id="job-description"
+            maxlength="500"
+            required
+          />
+        </label>
+
+        <!-- DATA DE INÍCIO -->
+        <label for="start">
+          Data de Início: <input type="text" name="start" id="start" placeholder="01/02/2021">
         </label>
       </fieldset>
     </main>
