@@ -53,7 +53,8 @@ function checkMaxLength() {
     let inputLength = inputElement.value.length;
 
     if (maxLength) {
-      console.log(inputLength <= maxLength ? true : false);
+      inputLength > 0 && inputLength <= maxLength ? true : false;
+      console.log(inputLength > 0 && inputLength <= maxLength ? true : false);
     }
   }
 }
