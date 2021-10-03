@@ -1,4 +1,4 @@
-# BLOCO 3 - HTML E CSS
+# Bloco 04: Introdução à JavaScript e Lógica de Programação
 
 Esse bloco pertence ao módulo de `fundamentos` do curso da [Trybe](https://www.betrybe.com/).
 
