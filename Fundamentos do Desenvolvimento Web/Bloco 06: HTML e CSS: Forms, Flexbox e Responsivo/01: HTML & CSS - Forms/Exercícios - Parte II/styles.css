@@ -1,0 +1,62 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin-block: 0;
+  margin-inline: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: rgb(50, 50, 50);
+  padding: 1rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  align-items: center;
+  margin: 0 auto;
+}
+
+section {
+  width: 100%;
+  padding: 1em;
+}
+
+fieldset {
+  border-radius: 5px;
+  padding-top: 1rem;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+legend {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+label {
+  display: flex;
+  margin-bottom: 1em;
+  padding: 0 1em 0 1em;
+  align-items: baseline;
+}
+
+select {
+  margin-left: 0.5em;
+}
+
+input {
+  margin-left: 0.5em;
+}
+
+#result-section {
+  border: 2px solid rgb(192, 192, 192);
+  border-radius: 5px;
+}
