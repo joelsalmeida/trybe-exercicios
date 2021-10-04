@@ -25,6 +25,17 @@ console.log(newEmployees());
 // recebendo como parâmetros o número apostado e uma função que checa se o número apostado é igual ao número sorteado.
 // O retorno da sua HOF deve ser uma string (Ex: "Tente novamente" ou "Parabéns você ganhou".
 
+const checkResult = (bet, number) =>
+  bet === number ? 'Parabéns você ganhou.' : 'Tente novamente.';
+
+const newGame = (bet, callBackToCheck) => {
+  const newNumber = Math.floor(Math.random() * 5) + 1;
+  console.log('Número sorteado: ' + newNumber);
+  
+  return callBackToCheck(bet, newNumber);
+};
+console.log(newGame(5, checkResult));
+
 // 3 - Crie uma HOF que receberá três parâmetros. O primeiro será um array de respostas corretas (Gabarito),
 // o segundo será um array de respostas a serem verificadas (respostas da pessoa estudante)
 // e o terceiro é uma função que checa se as respostas estão corretas e faz a contagem da pontuação final recebida pela pessoa estudante.
