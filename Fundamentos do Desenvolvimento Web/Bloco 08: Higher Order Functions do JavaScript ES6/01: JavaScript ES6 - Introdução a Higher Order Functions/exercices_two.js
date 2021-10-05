@@ -31,7 +31,7 @@ const checkResult = (bet, number) =>
 const newGame = (bet, callBackToCheck) => {
   const newNumber = Math.floor(Math.random() * 5) + 1;
   console.log('Número sorteado: ' + newNumber);
-  
+
   return callBackToCheck(bet, newNumber);
 };
 console.log(newGame(5, checkResult));
@@ -45,3 +45,23 @@ console.log(newGame(5, checkResult));
 
 const RIGHT_ANSWERS = ['A', 'C', 'B', 'D', 'A', 'A', 'D', 'A', 'D', 'C'];
 const STUDENT_ANSWERS = ['A', 'N.A', 'B', 'D', 'A', 'C', 'N.A', 'A', 'D', 'B'];
+
+const getScore = (rights, answers) => {
+  let total = 0;
+  for (let index = 0; index < rights.length; index++) {
+    const rightQuestion = rights[index];
+    const answersToCheck = answers[index];
+
+    if (answersToCheck === rightQuestion) {
+      total += 1;
+    } else if (answersToCheck !== 'N.A') {
+      total -= 0.5;
+    }
+  }
+  return total;
+};
+
+const score = (rightAnswers, studentAnswers, callBack) =>
+  `total: ${callBack(rightAnswers, studentAnswers)}`;
+
+console.log(score(RIGHT_ANSWERS, STUDENT_ANSWERS, getScore));
