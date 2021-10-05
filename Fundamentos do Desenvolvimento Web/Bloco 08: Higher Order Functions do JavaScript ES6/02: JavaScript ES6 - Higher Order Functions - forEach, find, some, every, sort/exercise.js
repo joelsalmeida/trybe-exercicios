@@ -63,4 +63,12 @@ const books = [
   },
 ];
 
-// Adicione o código do exercício aqui:
+// 1 - Encontre o nome da primeira pessoa autora do livro nascida no ano de 1947.
+
+function authorBornIn1947() {
+  const firstAuthor = books.find((element) => element.author.birthYear === 1947);
+  return firstAuthor.author.name;
+}
+console.log(authorBornIn1947());
+
+assert.strictEqual(authorBornIn1947(), 'Stephen King');
