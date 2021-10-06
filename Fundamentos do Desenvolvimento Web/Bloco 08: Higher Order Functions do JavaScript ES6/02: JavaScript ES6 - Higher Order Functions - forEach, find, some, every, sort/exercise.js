@@ -72,3 +72,21 @@ function authorBornIn1947() {
 console.log(authorBornIn1947());
 
 assert.strictEqual(authorBornIn1947(), 'Stephen King');
+
+// 2 - Retorne o nome do livro de menor nome.
+
+function smallerName() {
+  let nameBook;
+
+  books.forEach((book) => {
+    const currentBookName = book.name;
+    if (nameBook === undefined || currentBookName.length < nameBook.length) {
+      nameBook = currentBookName;
+    }
+  });
+
+  return nameBook;
+}
+console.log(smallerName());
+
+assert.strictEqual(smallerName(), 'Duna');
