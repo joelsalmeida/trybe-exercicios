@@ -30,3 +30,14 @@ const people = [
 ];
 
 // escreva filterPeople abaixo
+
+function filterPeople(peopleList, nationalityCountry, fromYear, toYear) {
+  return peopleList.filter(
+    ({ nationality, bornIn }) =>
+      nationality.toLowerCase() === nationalityCountry.toLowerCase() &&
+      bornIn > fromYear &&
+      bornIn < toYear
+  );
+}
+
+console.log(filterPeople(people, 'australian', 1900, 2000));
