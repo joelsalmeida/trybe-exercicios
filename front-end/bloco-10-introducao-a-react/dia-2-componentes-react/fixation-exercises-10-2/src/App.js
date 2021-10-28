@@ -1,6 +1,7 @@
 import './App.css';
 import Image from './Image';
 import Order from './Order';
+import UserProfile from './UserProfile';
 
 // Chame o componente Image , de forma que seja mostrada esta imagem,
 // ou o texto Cute cat staring , caso a imagem não consiga ser carregada.
@@ -27,13 +28,32 @@ const energyDrink = {
   },
 };
 
+const users = [
+  {
+    id: 102,
+    name: 'João',
+    email: 'joao@gmail.com',
+    avatar: 'https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_640.png',
+  },
+  {
+    id: 77,
+    name: 'Amélia',
+    email: 'amelia@gmail.com',
+    avatar: 'https://cdn.pixabay.com/photo/2017/01/31/13/05/cameo-2023867_640.png',
+  },
+];
+
 function App() {
   return (
     <div>
       <Image source={imgLink} alternativeText='Cute cat staring' />
+      
       <h1> Orders recently created </h1>
       <Order order={headphone} />
       <Order order={energyDrink} />
+      
+      <h1>User Profile</h1>
+      {users.map((user) => <UserProfile key={user.email} user={user}/>)}
     </div>
   );
 }
