@@ -1,9 +1,9 @@
 import './App.css';
 import pokemons from './data';
-import Pokemon from './Pokemon';
+import Pokedex from './Pokedex';
 
 function App() {
-  return <Pokemon pokemon={pokemons[0]} />;
+  return <Pokedex pokemons={pokemons} />;
 }
 
 export default App;
