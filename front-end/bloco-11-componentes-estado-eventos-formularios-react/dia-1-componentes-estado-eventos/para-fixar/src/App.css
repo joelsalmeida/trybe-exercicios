@@ -1,0 +1,10 @@
+button {
+  color: whitesmoke;
+  background-color: indianred;
+  padding: 1em;
+  margin: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: 700;
+  cursor: pointer;
+}
