@@ -9,23 +9,35 @@ import React from 'react';
 // Cada botão clicado deve acionar um evento diferente, cada um escrevendo algo diferente
 // no console do navegador via console.log() .
 
-const funcOne = () => console.log('Primeiro botão');
-const funcTwo = () => console.log('Segundo botão');
-const funcThree = () => console.log('Terceiro botão');
+// 3 - Declare dentro da classe do seu componente dos exercícios de fixação acima a função
+// que lida com o evento que antes era lidado por uma função do lado de fora da classe!
+
+// 4 - Garanta acesso ao objeto this na função que você declarou.
 
 class FancyButtons extends React.Component {
+  constructor() {
+    super();
+    this.funcOne = this.funcOne.bind(this);
+    this.funcTwo = this.funcTwo.bind(this);
+    this.funcThree = this.funcThree.bind(this);
+  }
+
+  funcOne = () => console.log('Primeiro botão');
+  funcTwo = () => console.log('Segundo botão');
+  funcThree = () => console.log('Terceiro botão');
+
   render() {
     return (
       <div className="buttons-container">
-        <button className="button-one" onClick={funcOne}>
+        <button className="button-one" onClick={this.funcOne}>
           Button One
         </button>
 
-        <button className="button-two" onClick={funcTwo}>
+        <button className="button-two" onClick={this.funcTwo}>
           Button Two
         </button>
 
-        <button className="button-three" onClick={funcThree}>
+        <button className="button-three" onClick={this.funcThree}>
           Button Three
         </button>
       </div>
