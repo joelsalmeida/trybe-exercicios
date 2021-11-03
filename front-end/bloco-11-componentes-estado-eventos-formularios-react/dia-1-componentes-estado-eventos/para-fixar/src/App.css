@@ -1,6 +1,7 @@
 button {
   color: whitesmoke;
   background-color: indianred;
+  min-width: 5rem;
   padding: 1em;
   margin: 0.5rem;
   border: none;
