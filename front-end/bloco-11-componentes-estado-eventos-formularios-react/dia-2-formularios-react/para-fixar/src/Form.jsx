@@ -8,13 +8,16 @@ class Form extends React.Component {
       textarea: '',
       email: '',
       number: '',
+      checkbox: false,
     };
     this.handleChange = this.handleChange.bind(this);
+    this.fileInput = React.createRef();
   }
 
   handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
+    alert('Arquivo selecionado: ' + this.fileInput.current.files[0].name);
 
     this.setState({
       [name]: value,
@@ -62,6 +65,26 @@ class Form extends React.Component {
             type="number"
             name="number"
             value={this.state.number}
+            onChange={this.handleChange}
+          />
+        </label>
+
+        <label htmlFor="checkbox" id="confirm">
+          Confirm:
+          <input
+            type="checkbox"
+            name="checkbox"
+            value={this.state.checkbox}
+            onChange={this.handleChange}
+          />
+        </label>
+
+        <label htmlFor="file">
+          Select your file:
+          <input
+            type="file"
+            name="file"
+            ref={this.fileInput}
             onChange={this.handleChange}
           />
         </label>
