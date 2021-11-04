@@ -4,14 +4,20 @@ class Form extends React.Component {
   constructor() {
     super();
     this.state = {
+      select: 'portuguese',
       textarea: '',
+      email: '',
+      number: '',
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
     this.setState({
-      textarea: event.target.value,
+      [name]: value,
     });
   }
 
@@ -22,17 +28,17 @@ class Form extends React.Component {
 
         <label htmlFor="select">
           Select your language:
-          <select name="select">
+          <select name="select" value={this.state.select} onChange={this.handleChange}>
             <option value="portuguese">Portuguese</option>
             <option value="english">English</option>
             <option value="french">French</option>
           </select>
         </label>
 
-        <label htmlFor="text-area">
+        <label htmlFor="textarea">
           Write your message:
           <textarea
-            name="text-area"
+            name="textarea"
             cols="30"
             rows="10"
             value={this.state.textarea}
@@ -42,12 +48,22 @@ class Form extends React.Component {
 
         <label htmlFor="email">
           Your email:
-          <input type="email" name="email" />
+          <input
+            type="email"
+            name="email"
+            value={this.state.email}
+            onChange={this.handleChange}
+          />
         </label>
 
         <label htmlFor="number">
           Number:
-          <input type="number" name="number" />
+          <input
+            type="number"
+            name="number"
+            value={this.state.number}
+            onChange={this.handleChange}
+          />
         </label>
       </form>
     );
