@@ -1,4 +1,7 @@
 import React from 'react';
+import Select from './Select';
+import TextArea from './TextArea';
+import Email from './Email';
 
 class Form extends React.Component {
   constructor() {
@@ -11,13 +14,17 @@ class Form extends React.Component {
       checkbox: false,
     };
     this.handleChange = this.handleChange.bind(this);
+    this.alertFile = this.alertFile.bind(this);
     this.fileInput = React.createRef();
+  }
+
+  alertFile() {
+    alert('Arquivo selecionado: ' + this.fileInput.current.files[0].name);
   }
 
   handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    alert('Arquivo selecionado: ' + this.fileInput.current.files[0].name);
 
     this.setState({
       [name]: value,
@@ -29,35 +36,11 @@ class Form extends React.Component {
       <form action="" className="form">
         <h2>Form Component</h2>
 
-        <label htmlFor="select">
-          Select your language:
-          <select name="select" value={this.state.select} onChange={this.handleChange}>
-            <option value="portuguese">Portuguese</option>
-            <option value="english">English</option>
-            <option value="french">French</option>
-          </select>
-        </label>
+        <Select callBack={this.handleChange} value={this.state.select} />
 
-        <label htmlFor="textarea">
-          Write your message:
-          <textarea
-            name="textarea"
-            cols="30"
-            rows="10"
-            value={this.state.textarea}
-            onChange={this.handleChange}
-          ></textarea>
-        </label>
+        <TextArea callBack={this.handleChange} value={this.state.textarea} />
 
-        <label htmlFor="email">
-          Your email:
-          <input
-            type="email"
-            name="email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-        </label>
+        <Email callBack={this.handleChange} value={this.state.email} />
 
         <label htmlFor="number">
           Number:
@@ -81,12 +64,7 @@ class Form extends React.Component {
 
         <label htmlFor="file">
           Select your file:
-          <input
-            type="file"
-            name="file"
-            ref={this.fileInput}
-            onChange={this.handleChange}
-          />
+          <input type="file" name="file" ref={this.fileInput} onChange={this.alertFile} />
         </label>
       </form>
     );
