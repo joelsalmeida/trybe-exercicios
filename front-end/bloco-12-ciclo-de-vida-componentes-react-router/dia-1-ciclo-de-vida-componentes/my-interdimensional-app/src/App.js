@@ -9,6 +9,10 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    this.fetchCharacters()    
+  }
+
   fetchCharacters = () => {
     fetch('https://rickandmortyapi.com/api/character')
     .then(response => response.json())
