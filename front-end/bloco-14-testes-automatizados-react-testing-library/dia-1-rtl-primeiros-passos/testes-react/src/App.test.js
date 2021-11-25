@@ -10,10 +10,10 @@ test('Verifica se existe o campo Email', () => {
   expect(inputEmail).toHaveProperty('type', 'email');
 });
 
-test('Verifica se existe um botão', () => {
+test('Verifica se existe dois botões', () => {
   render(<App />);
   
-  const button = screen.getByRole('button');
+  const button = screen.getAllByRole('button');
 
-  expect(button).toBeInTheDocument();
+  expect(button).toHaveLength(2);
 })
