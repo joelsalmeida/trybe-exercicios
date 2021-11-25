@@ -12,8 +12,18 @@ test('Verifica se existe o campo Email', () => {
 
 test('Verifica se existe dois botões', () => {
   render(<App />);
-  
+
   const button = screen.getAllByRole('button');
 
   expect(button).toHaveLength(2);
-})
+});
+
+test('Verifica se existe um botão Enviar', () => {
+  render(<App />);
+
+  const buttonSend = screen.getByTestId('id-send');
+
+  expect(buttonSend).toBeInTheDocument();
+  expect(buttonSend).toHaveProperty('type', 'button');
+  expect(buttonSend).toHaveValue('Enviar');
+});
