@@ -15,4 +15,12 @@ describe('Testa a função "generateRandomNumber"', () => {
     generateRandomNumber();
     expect(generateRandomNumber).toHaveReturnedWith(10);
   });
+
+  it('Testa nova implementação de divisão', () => {
+    const generateRandomNumber = jest.fn().mockImplementation((a, b) => a / b);
+
+    generateRandomNumber(14, 2);
+    expect(generateRandomNumber).toHaveBeenCalledWith(14, 2);
+    expect(generateRandomNumber).toHaveReturnedWith(7);
+  })
 });
