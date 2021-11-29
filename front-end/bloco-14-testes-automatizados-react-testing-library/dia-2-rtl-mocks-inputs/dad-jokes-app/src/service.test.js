@@ -44,6 +44,12 @@ describe('upperCase, firstLetter e concatenate', () => {
     mockUpperCase('CAIXA ALTA');
     expect(mockUpperCase).toHaveBeenCalledWith('CAIXA ALTA');
     expect(mockUpperCase).toHaveReturnedWith('caixa alta');
+
+    // Testa mockRestore()
+    expect(service.upperCase('CAIXA-BAIXA')).toBe('caixa-baixa');
+
+    service.upperCase.mockRestore();
+    expect(service.upperCase('caixa-baixa')).toBe('CAIXA-BAIXA');
   });
 
   it('firstLetter deve retornar a ultima letra', () => {
