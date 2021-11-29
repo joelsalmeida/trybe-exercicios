@@ -43,4 +43,18 @@ describe('Testa aplicação React Router Test', () => {
     const aboutTitle = screen.getByRole('heading', { name: 'Você está na página Sobre' });
     expect(aboutTitle).toBeInTheDocument();
   });
+
+  it('Verifica se ao clicar no link "sobre" é direcionado a página correta', () => {
+    const { history } = renderWithRouter(<App />);
+    
+    const linkToAbout = screen.getByRole('link', { name: /sobre/i });
+    expect(linkToAbout).toBeInTheDocument();
+    
+    userEvent.click(linkToAbout);
+    const { location: { pathname }} = history;
+    expect(pathname).toBe('/about');
+
+    const aboutTitle = screen.getByRole('heading', {name: /você está na página sobre/i, level: 1});
+    expect(aboutTitle).toBeInTheDocument();
+  });
 });
