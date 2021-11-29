@@ -1,3 +1,5 @@
+const service = require('./service');
+
 describe('Testa a função "generateRandomNumber"', () => {
   it('Testa se a função foi chamada', () => {
     const generateRandomNumber = jest.fn().mockReturnValue(10);
@@ -30,5 +32,37 @@ describe('Testa a função "generateRandomNumber"', () => {
     generateRandomNumber(2, 4, 6);
     expect(generateRandomNumber).toHaveBeenCalledWith(2, 4, 6);
     expect(generateRandomNumber).toHaveReturnedWith(48);
+  });
+});
+
+describe('upperCase, firstLetter e concatenate', () => {
+  it('upperCase deve retornar em caixa-baixa', () => {
+    const mockUpperCase = jest
+      .spyOn(service, 'upperCase')
+      .mockImplementation((phrase) => phrase.toLowerCase());
+
+    mockUpperCase('CAIXA ALTA');
+    expect(mockUpperCase).toHaveBeenCalledWith('CAIXA ALTA');
+    expect(mockUpperCase).toHaveReturnedWith('caixa alta');
+  });
+
+  it('firstLetter deve retornar a ultima letra', () => {
+    const mockFirstLetter = jest
+      .spyOn(service, 'firstLetter')
+      .mockImplementation((phrase) => phrase[phrase.length - 1]);
+
+    mockFirstLetter('Something');
+    expect(mockFirstLetter).toHaveBeenCalledWith('Something');
+    expect(mockFirstLetter).toHaveReturnedWith('g');
+  });
+
+  it('concatenate deve unir três strings', () => {
+    const mockConcatenate = jest
+      .spyOn(service, 'concatenate')
+      .mockImplementation((stringA, stringB, stringC) => stringA + stringB + stringC);
+
+    mockConcatenate('vic', 'to', 'ry');
+    expect(mockConcatenate).toHaveBeenCalledWith('vic', 'to', 'ry');
+    expect(mockConcatenate).toHaveReturnedWith('victory');
   });
 });
