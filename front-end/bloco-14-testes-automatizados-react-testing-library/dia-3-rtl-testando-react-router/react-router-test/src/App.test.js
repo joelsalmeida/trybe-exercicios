@@ -4,34 +4,36 @@ import userEvent from '@testing-library/user-event';
 import renderWithRouter from './renderWithRouter';
 import App from './App';
 
-it('Deve renderizar o componente App', () => {
-  renderWithRouter(<App />);
+describe('Testa aplicação React Router Test', () => {
+  it('Deve renderizar o componente App', () => {
+    renderWithRouter(<App />);
 
-  const homeTitle = screen.getByRole('heading', {
-    name: 'Você está na página Início',
+    const homeTitle = screen.getByRole('heading', {
+      name: 'Você está na página Início',
+    });
+    expect(homeTitle).toBeInTheDocument();
   });
-  expect(homeTitle).toBeInTheDocument();
-});
 
-it('Deve renderizar o componente Sobre', () => {
-  const { history } = renderWithRouter(<App />);
+  it('Deve renderizar o componente Sobre', () => {
+    const { history } = renderWithRouter(<App />);
 
-  const aboutLink = screen.getByRole('link', { name: 'Sobre' });
-  expect(aboutLink).toBeInTheDocument();
-  userEvent.click(aboutLink);
+    const aboutLink = screen.getByRole('link', { name: 'Sobre' });
+    expect(aboutLink).toBeInTheDocument();
+    userEvent.click(aboutLink);
 
-  const { pathname } = history.location;
-  expect(pathname).toBe('/about');
+    const { pathname } = history.location;
+    expect(pathname).toBe('/about');
 
-  const aboutTitle = screen.getByRole('heading', { name: 'Você está na página Sobre' });
-  expect(aboutTitle).toBeInTheDocument();
-});
+    const aboutTitle = screen.getByRole('heading', { name: 'Você está na página Sobre' });
+    expect(aboutTitle).toBeInTheDocument();
+  });
 
-it('Testa um caminho não existente e a renderização do Not Found', () => {
-  const { history } = renderWithRouter(<App />);
+  it('Testa um caminho não existente e a renderização do Not Found', () => {
+    const { history } = renderWithRouter(<App />);
 
-  history.push('/pagina/que-nao-existe/');
+    history.push('/pagina/que-nao-existe/');
 
-  const notFoundTitle = screen.getByRole('heading', { name: 'Página não encontrada' });
-  expect(notFoundTitle).toBeInTheDocument();
+    const notFoundTitle = screen.getByRole('heading', { name: 'Página não encontrada' });
+    expect(notFoundTitle).toBeInTheDocument();
+  });
 });
