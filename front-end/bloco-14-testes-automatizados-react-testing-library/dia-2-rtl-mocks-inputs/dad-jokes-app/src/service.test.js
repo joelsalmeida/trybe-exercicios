@@ -22,5 +22,13 @@ describe('Testa a função "generateRandomNumber"', () => {
     generateRandomNumber(14, 2);
     expect(generateRandomNumber).toHaveBeenCalledWith(14, 2);
     expect(generateRandomNumber).toHaveReturnedWith(7);
-  })
+  });
+
+  it('Testa nova implementação de multiplicação de três parâmetros', () => {
+    const generateRandomNumber = jest.fn().mockImplementation((a, b, c) => a * b * c);
+
+    generateRandomNumber(2, 4, 6);
+    expect(generateRandomNumber).toHaveBeenCalledWith(2, 4, 6);
+    expect(generateRandomNumber).toHaveReturnedWith(48);
+  });
 });
