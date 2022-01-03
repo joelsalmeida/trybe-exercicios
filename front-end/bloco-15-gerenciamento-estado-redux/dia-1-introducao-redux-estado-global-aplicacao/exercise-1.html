@@ -46,8 +46,16 @@
       const NEXT_COLOR = 'NEXT_COLOR';
       const PREVIOUS_COLOR = 'PREVIOUS_COLOR';
 
-      const actionNext = () => ({ type: NEXT_COLOR });
-      const actionPrevious = () => ({ type: PREVIOUS_COLOR });
+      // Crie eventListeners que escutam os cliques de cada botão, o Previous color e o Next color,
+      // e realizam um dispatch com o respectivo action.type de cada.
+      const actionNext = () => store.dispatch({ type: NEXT_COLOR });
+      const actionPrevious = () => store.dispatch({ type: PREVIOUS_COLOR });
+
+      const buttonNext = document.getElementById('next');
+      buttonNext.addEventListener('click', actionNext);
+
+      const buttonPrevious = document.getElementById('previous');
+      buttonPrevious.addEventListener('click', actionPrevious);
 
       // Crie um reducer, implementando um switch retornando apenas o estado inicial como default.
       // Não se esqueça de colocar o reducer como parâmetro para o createStore , feito na etapa anterior.
@@ -70,7 +78,10 @@
 
       // Crie uma store para a nossa aplicação
       const store = Redux.createStore(reducer);
-      console.log(reducer);
+
+      store.subscribe(() => {
+        console.log(store.getState());
+      });
     </script>
   </body>
 </html>
