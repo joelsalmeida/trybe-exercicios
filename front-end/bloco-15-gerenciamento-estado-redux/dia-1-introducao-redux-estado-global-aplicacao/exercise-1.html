@@ -34,12 +34,25 @@
       <button id="previous">Previous color</button>
       <button id="next">Next color</button>
     </div>
-    
+
     <script>
       const ESTADO_INICIAL = {
         colors: ['white', 'black', 'red', 'green', 'blue', 'yellow'],
         index: 0,
       };
+
+      // Crie um reducer, implementando um switch retornando apenas o estado inicial como default.
+      // Não se esqueça de colocar o reducer como parâmetro para o createStore , feito na etapa anterior.
+      const reducer = (state = ESTADO_INICIAL, action) => {
+        switch (action.type) {
+          default:
+            return ESTADO_INICIAL;
+        }
+      };
+
+      // Crie uma store para a nossa aplicação
+      const store = Redux.createStore(reducer);
+      console.log(store.getState());
     </script>
   </body>
 </html>
