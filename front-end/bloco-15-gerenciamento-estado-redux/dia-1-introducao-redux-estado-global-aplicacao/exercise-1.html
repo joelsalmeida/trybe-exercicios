@@ -41,10 +41,28 @@
         index: 0,
       };
 
+      // Incremente o switch criado no exercício anterior com as actions NEXT_COLOR e PREVIOUS_COLOR.
+      // Essas actions devem alterar o valor index guardado no ESTADO_INICIAL.
+      const NEXT_COLOR = 'NEXT_COLOR';
+      const PREVIOUS_COLOR = 'PREVIOUS_COLOR';
+
+      const actionNext = () => ({ type: NEXT_COLOR });
+      const actionPrevious = () => ({ type: PREVIOUS_COLOR });
+
       // Crie um reducer, implementando um switch retornando apenas o estado inicial como default.
       // Não se esqueça de colocar o reducer como parâmetro para o createStore , feito na etapa anterior.
       const reducer = (state = ESTADO_INICIAL, action) => {
         switch (action.type) {
+          case NEXT_COLOR:
+            return {
+              ...state,
+              index: state.index + 1,
+            };
+          case PREVIOUS_COLOR:
+            return {
+              ...state,
+              index: state.index - 1,
+            };
           default:
             return ESTADO_INICIAL;
         }
@@ -52,7 +70,7 @@
 
       // Crie uma store para a nossa aplicação
       const store = Redux.createStore(reducer);
-      console.log(store.getState());
+      console.log(reducer);
     </script>
   </body>
 </html>
