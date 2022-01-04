@@ -71,7 +71,30 @@
       const reducers = Redux.combineReducers({ meuPrimeiroReducer, meuSegundoReducer });
       const combinedStore = Redux.createStore(reducers);
 
-      combinedStore.subscribe(() => console.log(combinedStore.getState()));
+      window.onload = () => {
+        setTimeout(() => {
+          combinedStore.dispatch({ type: ALTERAR_PRIMEIRO_REDUCER });
+          combinedStore.dispatch({ type: ALTERAR_SEGUNDO_REDUCER });
+        }, 3000);
+      };
+
+      combinedStore.subscribe(() => {
+        console.log(combinedStore.getState());
+
+        const { meuPrimeiroReducer, meuSegundoReducer } = combinedStore.getState();
+
+        const name1 = document.getElementById('nome-1');
+        const sobrenome1 = document.getElementById('sobrenome-1');
+
+        const name2 = document.getElementById('nome-2');
+        const sobrenome2 = document.getElementById('sobrenome-2');
+
+        name1.innerText = meuPrimeiroReducer.nome;
+        sobrenome1.innerText = meuPrimeiroReducer.sobrenome;
+        
+        name2.innerText = meuSegundoReducer.nome;
+        sobrenome2.innerText = meuSegundoReducer.sobrenome;
+      });
     </script>
   </body>
 </html>
