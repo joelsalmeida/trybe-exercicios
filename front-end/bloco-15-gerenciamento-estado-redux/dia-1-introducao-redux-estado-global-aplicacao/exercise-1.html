@@ -62,15 +62,23 @@
       const reducer = (state = ESTADO_INICIAL, action) => {
         switch (action.type) {
           case NEXT_COLOR:
-            return {
-              ...state,
-              index: state.index + 1,
-            };
+            if (state.index < state.colors.length - 1)
+              return {
+                ...state,
+                index: state.index + 1,
+              };
+            else {
+              return { ...state };
+            }
           case PREVIOUS_COLOR:
-            return {
-              ...state,
-              index: state.index - 1,
-            };
+            if (state.index > 0)
+              return {
+                ...state,
+                index: state.index - 1,
+              };
+            else {
+              return { ...state };
+            }
           default:
             return ESTADO_INICIAL;
         }
@@ -79,8 +87,18 @@
       // Crie uma store para a nossa aplicação
       const store = Redux.createStore(reducer);
 
+      // Faça o subscribe da store, alterando o innerHTML da tag com id value para a cor atual e o style do elemento com id container.
       store.subscribe(() => {
         console.log(store.getState());
+
+        const { colors, index } = store.getState();
+
+        const valueElement = document.getElementById('value');
+        const containerElement = document.getElementById('container');
+        const currentColor = colors[index];
+
+        valueElement.innerHTML = currentColor;
+        containerElement.style.backgroundColor = currentColor;
       });
     </script>
   </body>
