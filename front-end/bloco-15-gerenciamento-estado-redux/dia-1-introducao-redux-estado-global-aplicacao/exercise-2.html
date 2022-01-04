@@ -23,7 +23,7 @@
       <p>Endereço: <span id="endereco-2">Rua Holanda, 332</span></p>
       <p>Cidade: <span id="cidade-2">São Paulo</span></p>
     </div>
-    
+
     <script>
       const ESTADO_INICIAL_1 = {
         nome: 'Rodrigo',
@@ -52,6 +52,9 @@
             return state;
         }
       };
+
+      const reducers = Redux.combineReducers({ meuPrimeiroReducer, meuSegundoReducer });
+      const combinedStore = Redux.createStore(reducers);
     </script>
   </body>
 </html>
