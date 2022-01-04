@@ -39,8 +39,17 @@
         cidade: 'São Paulo',
       };
 
+      const ALTERAR_PRIMEIRO_REDUCER = 'ALTERAR_PRIMEIRO_REDUCER';
+      const ALTERAR_SEGUNDO_REDUCER = 'ALTERAR_SEGUNDO_REDUCER';
+
       const meuPrimeiroReducer = (state = ESTADO_INICIAL_1, action) => {
         switch (action.type) {
+          case ALTERAR_PRIMEIRO_REDUCER:
+            return {
+              ...state,
+              nome: 'Tiago',
+              sobrenome: 'Algustin Albuquerque',
+            };
           default:
             return state;
         }
@@ -48,6 +57,12 @@
 
       const meuSegundoReducer = (state = ESTADO_INICIAL_2, action) => {
         switch (action.type) {
+          case ALTERAR_SEGUNDO_REDUCER:
+            return {
+              ...state,
+              nome: 'Amanda',
+              sobrenome: 'Silveira Brandão',
+            };
           default:
             return state;
         }
@@ -55,6 +70,8 @@
 
       const reducers = Redux.combineReducers({ meuPrimeiroReducer, meuSegundoReducer });
       const combinedStore = Redux.createStore(reducers);
+
+      combinedStore.subscribe(() => console.log(combinedStore.getState()));
     </script>
   </body>
 </html>
