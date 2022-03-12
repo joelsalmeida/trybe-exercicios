@@ -1,8 +1,5 @@
 const readlineSync = require('readline-sync');
 
-// Vamos sofisticar um pouco mais nosso script.
-// Além de imprimir o IMC na tela, imprima também em qual categoria de IMC a pessoa se enquadra.
-
 const NAME = readlineSync.question('Qual o seu nome? ');
 
 const WEIGHT = readlineSync.questionInt('Qual o seu peso? ', {
