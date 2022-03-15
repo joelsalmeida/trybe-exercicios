@@ -1,13 +1,26 @@
 const { expect } = require('chai');
 
-// Estruture os testes utilizando mocha e chai para um função que irá dizer se um número é "positivo", "negativo" ou "neutro":
-// Essa função irá receber um número como parâmetro e retornar uma string como resposta;
-// Quando o número passado for maior que 0 deverá retornar "positivo", quando for menor que 0 deverá retornar "negativo"
-// e quando igual a 0 deverá retornar "neutro";
+// Adicione à função um tratamento para casos em que o parâmetro informado não seja do tipo Number .
 
 const numberType = require('./numberType');
 
 describe('Função: numberType', () => {
+  it('Caso não receba um parâmetro, deve disparar um erro', () => {
+    expect(() => numberType()).to.throw();
+  });
+
+  it('Caso não receba um parâmetro, a mensagem de erro deve ser: Ops, esqueceu o parâmetro?', () => {
+    expect(() => numberType()).to.throw('Ops, esqueceu o parâmetro?');
+  });
+
+  it('Ao receber um parâmetro que não seja um número, deve disparar um erro', () => {
+    expect(() => numberType('1')).to.throw();
+  });
+
+  it('Ao receber um parâmetro que não seja um número, a mensagem de erro deve ser: O valor deve ser um número', () => {
+    expect(() => numberType('1')).to.throw('O valor deve ser um número');
+  });
+
   it('Ao receber um número maior que "0", deve retornar "Positivo"', () => {
     expect(numberType(1)).to.be.equal('Positivo');
   });
