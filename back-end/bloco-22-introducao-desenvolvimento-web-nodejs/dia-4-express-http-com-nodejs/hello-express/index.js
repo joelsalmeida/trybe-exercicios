@@ -10,4 +10,3 @@ app.get('/hello', handleHelloWorldRequest);
 app.listen(3001, () => {
   console.log('Aplicação ouvindo a porta 3001');
 });
-
