@@ -16,12 +16,14 @@ const drinks = [
   { id: 6, name: 'Água Mineral 500 ml', price: 5.0 },
 ];
 
+const sortByName = (a, b) => a.name.localeCompare(b.name, { ignorePunctuation: true });
+
 app.get('/recipes', (_req, res) => {
-  res.json(recipes);
+  res.json(recipes.sort(sortByName));
 });
 
 app.get('/drinks', (_req, res) => {
-  res.json(drinks);
+  res.json(drinks.sort(sortByName));
 });
 
 app.listen(3001, () => {
