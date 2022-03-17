@@ -73,6 +73,33 @@ app.post('/drinks', (req, res) => {
   res.status(200).json({ message: 'Drink adicionado com sucesso!' });
 });
 
+app.put('/recipes/:id', function (req, res) {
+  const { id } = req.params;
+  const { name, price } = req.body;
+  const recipeIndex = recipes.findIndex((recipe) => recipe.id === parseInt(id));
+  const notFound = -1;
+
+  if (recipeIndex === notFound)
+    return res.status(404).json({ message: 'Receita não encontrada.' });
+
+  recipes[recipeIndex] = { ...recipes[recipeIndex], name, price };
+
+  res.status(204).end();
+});
+
+app.delete('/recipes/:id', function (req, res) {
+  const { id } = req.params;
+  const recipeIndex = recipes.findIndex((recipe) => recipe.id === parseInt(id));
+  const notFound = -1;
+
+  if (recipeIndex === notFound)
+    return res.status(404).json({ message: 'Receita não encontrada.' });
+
+  recipes.splice(recipeIndex, 1);
+
+  res.status(204).end();
+});
+
 app.listen(3001, () => {
   console.log('Aplicação ouvindo na porta 3001');
 });
