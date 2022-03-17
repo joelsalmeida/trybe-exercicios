@@ -26,6 +26,20 @@ app.get('/drinks', (_req, res) => {
   res.json(drinks.sort(sortByName));
 });
 
+app.get('/recipes/search', (req, res) => {
+  const { name } = req.query;
+  const filteredRecipes = recipes.filter((recipe) => recipe.name.includes(name));
+
+  return res.status(200).json(filteredRecipes);
+});
+
+app.get('/drinks/search', (req, res) => {
+  const { name } = req.query;
+  const filteredDrinks = drinks.filter((drink) => drink.name.includes(name));
+
+  return res.status(200).json(filteredDrinks);
+});
+
 app.get('/recipes/:id', (req, res) => {
   const { id } = req.params;
   const recipe = recipes.find((recipe) => recipe.id === Number(id));
