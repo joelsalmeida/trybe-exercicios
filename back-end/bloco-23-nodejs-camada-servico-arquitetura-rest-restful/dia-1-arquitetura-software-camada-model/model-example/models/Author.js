@@ -19,6 +19,18 @@ const withFullName = ({ id, firstName, middleName, lastName }) => {
   };
 };
 
+const isValid = (firstName, middleName, lastName) => {
+  const values = [firstName, middleName, lastName];
+  if (values.some((value) => !value || typeof value !== 'string')) return false;
+  return true;
+};
+
+const create = async (firstName, middleName, lastName) =>
+  connection.execute(
+    'INSERT INTO model_example.authors (first_name, middle_name, last_name) VALUES (?,?,?)',
+    [firstName, middleName, lastName]
+  );
+
 const getAll = async () => {
   const [authors] = await connection.execute(
     `SELECT id, first_name, middle_name, last_name
@@ -37,4 +49,4 @@ const getById = async (id) => {
   return author.map(serialize).map(withFullName);
 };
 
-module.exports = { getAll, getById };
+module.exports = { getAll, getById, isValid, create };
