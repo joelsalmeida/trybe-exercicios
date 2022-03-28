@@ -1,18 +1,6 @@
+
+const { getNewAuthor } = require('../services/serviceAuthor');
 const connection = require('./connection');
-
-const getNewAuthor = (authorData) => {
-  const { id, firstName, middleName, lastName } = authorData;
-
-  const fullName = [firstName, middleName, lastName].filter((name) => name).join(' ');
-
-  return {
-    id,
-    firstName,
-    middleName,
-    lastName,
-    name: fullName,
-  };
-};
 
 const serialize = (authorData) =>
   authorData.map((item) =>
@@ -42,25 +30,7 @@ const findById = async (id) => {
   return serialize(authorData)[0];
 };
 
-const isValid = (firstName, middleName, lastName) => {
-  if (!firstName || typeof firstName !== 'string') return false;
-  if (!lastName || typeof lastName !== 'string') return false;
-  if (middleName && typeof middleName !== 'string') return false;
-
-  return true;
-};
-
-const createAuthor = async (firstName, middleName, lastName) => {
-  const [author] = await connection.execute(
-    'INSERT INTO model_example.authors (first_name, middle_name, last_name) VALUES (?, ?, ?)',
-    [firstName, middleName, lastName]
-  );
-  return getNewAuthor({ id: author.insertId, firstName, middleName, lastName });
-};
-
 module.exports = {
   getAll,
   findById,
-  isValid,
-  createAuthor,
 };
