@@ -1,6 +1,12 @@
 const express = require('express');
 
 const app = express();
+app.use(express.json());
+
+const config = require('./config/config');
+
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize(config.development);
 
 const { Address, Employee, Book, User } = require('./models');
 
@@ -47,7 +53,7 @@ app.get('/usersbooks/:id', async (req, res) => {
     const { id } = req.params;
     const user = await User.findOne({
       where: { userId: id },
-      include: [{ model: Book, as: 'books', through: { attributes: [] }  }],
+      include: [{ model: Book, as: 'books', through: { attributes: [] } }],
     });
 
     if (!user) return res.status(404).json({ message: 'Usuário não encontrado' });
@@ -58,6 +64,65 @@ app.get('/usersbooks/:id', async (req, res) => {
     res.status(500).json({ message: 'Algo deu errado' });
   }
 });
+
+// Unmanaged transaction
+app.post('/employees', async (req, res) => {
+  const t = await sequelize.transaction();
+
+  try {
+    const { firstName, lastName, age, city, street, number } = req.body;
+
+    const employee = await Employee.create(
+      { firstName, lastName, age },
+      { transaction: t }
+    );
+
+    await Address.create(
+      { city, street, number, employeeId: employee.id },
+      { transaction: t }
+    );
+
+    await t.commit();
+    return res.status(201).json({ message: 'Funcionário cadastrado com sucesso' });
+  } catch (e) {
+    await t.rollback();
+    console.log(e.message);
+    res.status(500).json({ message: 'Algo deu errado' });
+  }
+});
+
+// Managed transaction
+// app.post('/employees', async (req, res) => {
+//   try {
+//     const { firstName, lastName, age, city, street, number } = req.body;
+
+//     await sequelize.transaction(async (t) => {
+//       const employee = await Employee.create(
+//         {
+//           firstName,
+//           lastName,
+//           age,
+//         },
+//         { transaction: t }
+//       );
+
+//       await Address.create(
+//         {
+//           city,
+//           street,
+//           number,
+//           employeeId: employee.id,
+//         },
+//         { transaction: t }
+//       );
+
+//       return res.status(201).json({ message: 'Cadastrado com sucesso' });
+//     });
+//   } catch (e) {
+//     console.log(e.message);
+//     res.status(500).json({ message: 'Algo deu errado' });
+//   }
+// });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Ouvindo na porta ${PORT}`));
