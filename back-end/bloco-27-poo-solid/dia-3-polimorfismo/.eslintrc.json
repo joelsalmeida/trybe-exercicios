@@ -11,13 +11,13 @@
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module",
-        "project": "./back-end/bloco-27-poo-solid/dia-2-heranca-e-interfaces/tsconfig.json"
+        "project": "./back-end/bloco-27-poo-solid/dia-3-polimorfismo/tsconfig.json"
     },
     "plugins": [
         "@typescript-eslint"
     ],
     "rules": {
-        "no-underscore-dangle":"off",
-        "class-methods-use-this":"off"
+        "no-underscore-dangle": "off",
+        "class-methods-use-this": "off"
     }
 }
