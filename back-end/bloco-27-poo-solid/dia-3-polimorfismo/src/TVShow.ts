@@ -9,12 +9,9 @@ abstract class TVShow {
 
   private _release: Date;
 
-  private _type: EType;
-
-  constructor(name: string, release: Date, type: EType) {
+  constructor(name: string, release: Date) {
     this._name = name;
     this._release = release;
-    this._type = type;
   }
 
   public get name() : string {
@@ -25,8 +22,11 @@ abstract class TVShow {
     return this._release;
   }
 
-  public get type() : EType {
-    return this._type;
+  public getResume(): string {
+    return (
+      `Name: ${this._name}
+       Release: ${this._release}.`
+    );
   }
 }
 
